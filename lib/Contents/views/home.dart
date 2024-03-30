@@ -20,21 +20,95 @@ class Home extends StatelessWidget {
     HomeController controller = Get.put(HomeController());
 
     return Scaffold(
+      bottomNavigationBar: Container(
+        // margin: EdgeInsets.zero,
+        height: _screenheight * 0.084518,
+        decoration: BoxDecoration(
+          color: AdvColors.loginfield,
+        ),
+        child: BottomNavigationBar(
+            currentIndex: controller.selectedpage.toInt(),
+            elevation: 0,
+            landscapeLayout: BottomNavigationBarLandscapeLayout.spread,
+            onTap: (index) {
+              controller.setindex(index);
+              pg.animateToPage(index,
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeInOutSine);
+              // debugPrint("Index number $index");
+            },
+            selectedItemColor: AdvColors.navyellow,
+            unselectedItemColor: Colors.black,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: AdvColors.loginfield,
+            items: [
+              BottomNavigationBarItem(
+                label: '',
+                icon: Obx(() => CircleAvatar(
+                      backgroundColor: controller.selectedpage.value == 0
+                          ? AdvColors.navyellow
+                          : Colors.white,
+                      radius: _screenheight * 0.023,
+                      // height: _screenheight * 0.039006,
+                      // width: _screenwidth * 0.1616244,
+                      child: FaIcon(
+                        FontAwesomeIcons.squareCheck,
+                        color: Colors.black,
+                      ),
+                    )),
+              ),
+              BottomNavigationBarItem(
+                label: '',
+                icon: Obx(() => CircleAvatar(
+                      backgroundColor: controller.selectedpage.value == 1
+                          ? AdvColors.navyellow
+                          : Colors.white,
+                      radius: _screenheight * 0.023,
+                      // height: _screenheight * 0.039006,
+                      // width: _screenwidth * 0.1616244,
+                      child: FaIcon(
+                        FontAwesomeIcons.peopleGroup,
+                        color: Colors.black,
+                      ),
+                    )),
+              ),
+              BottomNavigationBarItem(
+                label: '',
+                icon: Obx(() => CircleAvatar(
+                      backgroundColor: controller.selectedpage.value == 2
+                          ? AdvColors.navyellow
+                          : Colors.white,
+                      radius: _screenheight * 0.023,
+                      // height: _screenheight * 0.039006,
+                      // width: _screenwidth * 0.1616244,
+                      child: FaIcon(
+                        FontAwesomeIcons.graduationCap,
+                        color: Colors.black,
+                      ),
+                    )),
+              )
+            ]),
+      ),
       body: Container(
         // height: _screenheight,
         // width: _screenwidth,
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: _screenwidth * 0.04843318,
+            padding: EdgeInsets.only(
+              top: _screenheight * 0.0100227,
+              bottom: 0,
             ),
             child: CustomScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
                   actions: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 5),
+                      padding:
+                          EdgeInsets.only(right: _screenwidth * 0.04843318),
                       child: Container(
                         height: _screenheight * 0.09399,
                         width: _screenwidth * 0.17193,
@@ -46,13 +120,13 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ],
-                  toolbarHeight: _screenheight * 0.1144227,
+                  toolbarHeight: _screenheight * 0.0900227,
                   floating: true,
                   pinned: true,
-                  elevation: 3,
+                  elevation: 0,
                   title: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 6,
+                    padding: EdgeInsets.only(
+                      top: _screenheight * 0.016,
                     ),
                     child: Obx(() => Text(
                           controller.titles[controller.selectedpage.value],
@@ -65,9 +139,9 @@ class Home extends StatelessWidget {
                 ),
                 SliverList(
                   delegate: SliverChildListDelegate([
-                    const SizedBox(height: 5),
+                    // const SizedBox(height: 5),
                     Container(
-                      height: _screenheight * 0.7248700485,
+                      height: _screenheight * 0.7948700485,
                       child: PageView(
                         controller: pg,
                         physics: const BouncingScrollPhysics(),
@@ -84,94 +158,79 @@ class Home extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      height: _screenheight * 0.1014518,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3))
-                        ],
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                        color: AdvColors.loginfield,
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(7),
-                          child: BottomNavigationBar(
-                              currentIndex: controller.selectedpage.toInt(),
-                              elevation: 0,
-                              landscapeLayout:
-                                  BottomNavigationBarLandscapeLayout.spread,
-                              onTap: (index) {
-                                controller.setindex(index);
-                                pg.animateToPage(index,
-                                    duration: Duration(milliseconds: 400),
-                                    curve: Curves.easeInOut);
-                                debugPrint("Index number $index");
-                              },
-                              selectedItemColor: AdvColors.navyellow,
-                              unselectedItemColor: Colors.black,
-                              type: BottomNavigationBarType.fixed,
-                              backgroundColor: AdvColors.loginfield,
-                              items: [
-                                BottomNavigationBarItem(
-                                  label: '',
-                                  icon: Obx(() => CircleAvatar(
-                                        backgroundColor:
-                                            controller.selectedpage.value == 0
-                                                ? AdvColors.navyellow
-                                                : Colors.white,
-                                        radius: _screenheight * 0.023,
-                                        // height: _screenheight * 0.039006,
-                                        // width: _screenwidth * 0.1616244,
-                                        child: FaIcon(
-                                          FontAwesomeIcons.squareCheck,
-                                          color: Colors.black,
-                                        ),
-                                      )),
-                                ),
-                                BottomNavigationBarItem(
-                                  label: '',
-                                  icon: Obx(() => CircleAvatar(
-                                        backgroundColor:
-                                            controller.selectedpage.value == 1
-                                                ? AdvColors.navyellow
-                                                : Colors.white,
-                                        radius: _screenheight * 0.023,
-                                        // height: _screenheight * 0.039006,
-                                        // width: _screenwidth * 0.1616244,
-                                        child: FaIcon(
-                                          FontAwesomeIcons.peopleGroup,
-                                          color: Colors.black,
-                                        ),
-                                      )),
-                                ),
-                                BottomNavigationBarItem(
-                                  label: '',
-                                  icon: Obx(() => CircleAvatar(
-                                        backgroundColor:
-                                            controller.selectedpage.value == 2
-                                                ? AdvColors.navyellow
-                                                : Colors.white,
-                                        radius: _screenheight * 0.023,
-                                        // height: _screenheight * 0.039006,
-                                        // width: _screenwidth * 0.1616244,
-                                        child: FaIcon(
-                                          FontAwesomeIcons.graduationCap,
-                                          color: Colors.black,
-                                        ),
-                                      )),
-                                )
-                              ]),
-                        ),
-                      ),
-                    )
+                    // Container(
+                    //   margin: EdgeInsets.zero,
+                    //   height: _screenheight * 0.094518,
+                    //   decoration: BoxDecoration(
+                    //     color: AdvColors.loginfield,
+                    //   ),
+                    //   child: BottomNavigationBar(
+                    //       currentIndex: controller.selectedpage.toInt(),
+                    //       elevation: 0,
+                    //       landscapeLayout:
+                    //           BottomNavigationBarLandscapeLayout.spread,
+                    //       onTap: (index) {
+                    //         controller.setindex(index);
+                    //         pg.animateToPage(index,
+                    //             duration: Duration(milliseconds: 400),
+                    //             curve: Curves.easeInOutSine);
+                    //         // debugPrint("Index number $index");
+                    //       },
+                    //       selectedItemColor: AdvColors.navyellow,
+                    //       unselectedItemColor: Colors.black,
+                    //       type: BottomNavigationBarType.fixed,
+                    //       backgroundColor: AdvColors.loginfield,
+                    //       items: [
+                    //         BottomNavigationBarItem(
+                    //           label: '',
+                    //           icon: Obx(() => CircleAvatar(
+                    //                 backgroundColor:
+                    //                     controller.selectedpage.value == 0
+                    //                         ? AdvColors.navyellow
+                    //                         : Colors.white,
+                    //                 radius: _screenheight * 0.023,
+                    //                 // height: _screenheight * 0.039006,
+                    //                 // width: _screenwidth * 0.1616244,
+                    //                 child: FaIcon(
+                    //                   FontAwesomeIcons.squareCheck,
+                    //                   color: Colors.black,
+                    //                 ),
+                    //               )),
+                    //         ),
+                    //         BottomNavigationBarItem(
+                    //           label: '',
+                    //           icon: Obx(() => CircleAvatar(
+                    //                 backgroundColor:
+                    //                     controller.selectedpage.value == 1
+                    //                         ? AdvColors.navyellow
+                    //                         : Colors.white,
+                    //                 radius: _screenheight * 0.023,
+                    //                 // height: _screenheight * 0.039006,
+                    //                 // width: _screenwidth * 0.1616244,
+                    //                 child: FaIcon(
+                    //                   FontAwesomeIcons.peopleGroup,
+                    //                   color: Colors.black,
+                    //                 ),
+                    //               )),
+                    //         ),
+                    //         BottomNavigationBarItem(
+                    //           label: '',
+                    //           icon: Obx(() => CircleAvatar(
+                    //                 backgroundColor:
+                    //                     controller.selectedpage.value == 2
+                    //                         ? AdvColors.navyellow
+                    //                         : Colors.white,
+                    //                 radius: _screenheight * 0.023,
+                    //                 // height: _screenheight * 0.039006,
+                    //                 // width: _screenwidth * 0.1616244,
+                    //                 child: FaIcon(
+                    //                   FontAwesomeIcons.graduationCap,
+                    //                   color: Colors.black,
+                    //                 ),
+                    //               )),
+                    //         )
+                    //       ]),
+                    // )
                   ]),
                 )
               ],
