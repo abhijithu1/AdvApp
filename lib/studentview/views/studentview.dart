@@ -15,9 +15,8 @@ class StudentView extends StatelessWidget {
           body: Container(
         child: Padding(
           padding: EdgeInsets.only(
-              top: 10.0,
-              left: _screenwidth * 0.04843318,
-              right: _screenwidth * 0.04843318),
+            top: _screenheight * 0.0100227,
+          ),
           child: CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
@@ -30,10 +29,13 @@ class StudentView extends StatelessWidget {
                   ),
                 ),
                 centerTitle: true,
-                toolbarHeight: _screenheight * 0.1144227,
+                toolbarHeight: _screenheight * 0.0900227,
                 floating: true,
                 pinned: true,
-                elevation: 3,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
                 title: Padding(
                   padding: const EdgeInsets.only(
                     top: 6,
