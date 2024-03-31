@@ -99,7 +99,7 @@ class Home extends StatelessWidget {
               bottom: 0,
             ),
             child: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
+              physics: NeverScrollableScrollPhysics(),
               slivers: [
                 SliverAppBar(
                   shape: RoundedRectangleBorder(

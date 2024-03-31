@@ -16,13 +16,13 @@ class StudentsBody extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: EdgeInsets.only(top: height * 0.021),
       child: Container(
           child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10.0,
+            padding: EdgeInsets.only(
+              top: height * 0.01265,
             ),
             child: Container(
               height: height * 0.11265,
@@ -49,6 +49,7 @@ class StudentsBody extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
+                physics: BouncingScrollPhysics(),
                 itemCount: 20,
                 itemBuilder: (context, index) {
                   return Padding(
