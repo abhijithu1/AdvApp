@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:advapp/Contents/views/bottomfilter.dart';
 
 class StudentsBody extends StatelessWidget {
   const StudentsBody({
@@ -28,8 +29,11 @@ class StudentsBody extends StatelessWidget {
               height: height * 0.11265,
               child: TextField(
                 decoration: InputDecoration(
-                  suffixIcon:
-                      GestureDetector(child: FaIcon(FontAwesomeIcons.sort)),
+                  suffixIcon: IconButton(
+                    icon: FaIcon(FontAwesomeIcons.sort),
+                    onPressed: () =>
+                        Get.bottomSheet<Widget>(const BottomFilter()),
+                  ),
                   prefixIcon: Icon(Icons.search),
                   fillColor: AdvColors.loginfield,
                   focusColor: AdvColors.loginfield,
