@@ -15,44 +15,34 @@ class ApprovalPage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.only(
-            top: _screenheight * 0.0100227,
-          ),
-          child: CustomScrollView(
-            physics: BouncingScrollPhysics(),
-            slivers: [
-              SliverAppBar(
-                leading: GestureDetector(
-                  onTap: () => Get.back(),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    size: _screenheight * 0.03,
-                  ),
+        body: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              leading: GestureDetector(
+                onTap: () => Get.back(),
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: _screenheight * 0.03,
                 ),
-                centerTitle: true,
-                toolbarHeight: _screenheight * 0.0900227,
-                floating: true,
-                pinned: true,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
+              ),
+              centerTitle: true,
+              toolbarHeight: _screenheight * 0.0900227,
+              floating: true,
+              pinned: true,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0),
+              ),
+              title: Text(
+                "Approval - $title",
+                style: StyleText.font2.copyWith(
+                  fontSize: _screenheight * 0.0340543,
                 ),
-                title: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 6,
-                  ),
-                  child: Text(
-                    "Approval - $title",
-                    style: StyleText.font2.copyWith(
-                      fontSize: _screenheight * 0.0340543,
-                    ),
-                  ),
-                ),
-                automaticallyImplyLeading: false,
-              )
-            ],
-          ),
+              ),
+              automaticallyImplyLeading: false,
+            )
+          ],
         ),
       ),
     );
