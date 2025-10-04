@@ -95,31 +95,31 @@ class Home extends StatelessWidget {
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(
-              top: _screenheight * 0.0100227,
+              // top: _screenheight * 0.0100227,
               bottom: 0,
             ),
             child: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
+              physics: NeverScrollableScrollPhysics(),
               slivers: [
                 SliverAppBar(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(0),
                   ),
-                  actions: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(right: _screenwidth * 0.04843318),
-                      child: Container(
-                        height: _screenheight * 0.09399,
-                        width: _screenwidth * 0.17193,
-                        child: const CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            "https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg",
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  // actions: [
+                  //   Padding(
+                  //     padding:
+                  //         EdgeInsets.only(right: _screenwidth * 0.04843318),
+                  //     child: Container(
+                  //       height: _screenheight * 0.09399,
+                  //       width: _screenwidth * 0.17193,
+                  //       child: const CircleAvatar(
+                  //         backgroundImage: NetworkImage(
+                  //           "https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg",
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ],
                   toolbarHeight: _screenheight * 0.0900227,
                   floating: true,
                   pinned: true,

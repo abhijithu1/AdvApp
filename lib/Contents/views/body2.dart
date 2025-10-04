@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:advapp/Contents/views/bottomfilter.dart';
 
 class StudentsBody extends StatelessWidget {
   const StudentsBody({
@@ -16,20 +17,23 @@ class StudentsBody extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: EdgeInsets.only(top: height * 0.021),
       child: Container(
           child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10.0,
+            padding: EdgeInsets.only(
+              top: height * 0.01265,
             ),
             child: Container(
               height: height * 0.11265,
               child: TextField(
                 decoration: InputDecoration(
-                  suffixIcon:
-                      GestureDetector(child: FaIcon(FontAwesomeIcons.sort)),
+                  suffixIcon: IconButton(
+                    icon: FaIcon(FontAwesomeIcons.sort),
+                    onPressed: () =>
+                        Get.bottomSheet<Widget>(const BottomFilter()),
+                  ),
                   prefixIcon: Icon(Icons.search),
                   fillColor: AdvColors.loginfield,
                   focusColor: AdvColors.loginfield,
@@ -49,6 +53,7 @@ class StudentsBody extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
+                physics: BouncingScrollPhysics(),
                 itemCount: 20,
                 itemBuilder: (context, index) {
                   return Padding(

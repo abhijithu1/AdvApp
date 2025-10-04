@@ -5,6 +5,7 @@ class AdvColors {
   static Color loginbutton = const Color(0xff2D4375);
   static Color appbar = const Color(0xff90EE90);
   static Color navyellow = const Color(0xffFFC847);
+  static Color bottomsheet = Color.fromARGB(255, 186, 255, 186);
 }
 
 class StyleText {
